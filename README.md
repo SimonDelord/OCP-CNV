@@ -9,3 +9,5 @@ Multus networking must be configured by modifying the networks.operator.openshif
 
 The third one (FedoraVM-multiNIC-noDefaultNIC.yaml), makes use of Multus again and has 2 vNICs attached to it (but not the default one).
 Interestingly, for this one, when looking at the PoD, it is defined with 3 interfaces (the default and the 2 multus ones) while when logging into the VM (fedora/fedora) only 2 interfaces (the multus ones) appear.
+
+I have also uploaded the "networks.operator.openshift.io cluster" file to show the changes made there to support 2 bridges (multus1 and multus2)

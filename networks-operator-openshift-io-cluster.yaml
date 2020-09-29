@@ -1,0 +1,60 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: operator.openshift.io/v1
+kind: Network
+metadata:
+  creationTimestamp: "2020-09-20T05:36:49Z"
+  generation: 6
+  managedFields:
+  - apiVersion: operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:clusterNetwork: {}
+        f:defaultNetwork:
+          .: {}
+          f:type: {}
+        f:logLevel: {}
+        f:serviceNetwork: {}
+      f:status: {}
+    manager: cluster-network-operator
+    operation: Update
+    time: "2020-09-20T05:36:49Z"
+  - apiVersion: operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:additionalNetworks: {}
+    manager: oc
+    operation: Update
+    time: "2020-09-28T23:24:07Z"
+  name: cluster
+  resourceVersion: "4815845"
+  selfLink: /apis/operator.openshift.io/v1/networks/cluster
+  uid: 9baeaae7-1789-4a16-b864-06f4171d4d5a
+spec:
+  additionalNetworks:
+  - name: multus1
+    namespace: default
+    rawCNIConfig: '{ "cniVersion": "0.3.1", "name": "multus1", "type": "bridge", "bridge":
+      "multusbridge", "master": "eth1", "ipam": { "type": "static", "addresses": [
+      { "address": "191.168.2.1/24" } ] } }'
+    type: Raw
+  - name: multus2
+    namespace: default
+    rawCNIConfig: '{ "cniVersion": "0.3.1", "name": "multus2", "type": "bridge", "bridge":
+      "multusbridge", "master": "eth1", "ipam": { "type": "static", "addresses": [
+      { "address": "191.168.3.1/24" } ] } }'
+    type: Raw
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  defaultNetwork:
+    type: OpenShiftSDN
+  logLevel: ""
+  serviceNetwork:
+  - 172.30.0.0/16
+status: {}
